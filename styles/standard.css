@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.btn{
+    cursor: pointer;
+}
+
+.dBlock {
+    display: block;
+}
+
+.dFlex {
+    display: flex;
+}
+
+.dNone {
+    display: none;
+}
