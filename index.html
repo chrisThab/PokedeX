@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./styles/standard.css">
   <link rel="stylesheet" href="./styles/index.css">
   <link rel="stylesheet" href="./styles/testStyles.css">
+  <link rel="stylesheet" href="./styles/dialog.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
@@ -17,9 +18,8 @@
 <body onload="loadData()">
   <header>
     <div id="headline" ><img src="assets/img/pokedex.png" alt="Pokemon headline"></div>
-    <input id="searchFor" class="font borderStandard" type="text" minlength="3" placeholder="Search for ...">
+    <input id="searchFor" class="font borderStandard" type="search" minlength="3" placeholder="Search for ..." name="searchFor"><button class="searchButton borderStandard" type="submit" aria-label="searchButton" label="searchFor">GO</button>
   </header>
-
 
   <main>
     <div id="card" class="card borderStandard">
@@ -27,17 +27,23 @@
         <p id="numberOfPokemon">nummer</p>
         <p id="nameOfPokemon">name</p>
       </div>
-      <div class="pokemonPicture" id="picturePokemon"><img id="pic" src="" alt="picture of"></div>
+      <div class="pokemonPicture" id="picturePokemon"><img onclick="toggleDialog()" id="pic" src="" alt="picture of"></div>
       <div class="pokemonDetails">
-        <div class="borderStandard" id="abilities">abilities</div>
-        <div class="borderStandard" id="stats">stats</div>
-        <div class="borderStandard" id="evolution">evolution</div>
+        <div onclick="" class="borderStandard" id="abilities">abilities</div>
+        <div onclick="" class="borderStandard" id="stats">stats</div>
+        <div onclick="" class="borderStandard" id="evolution">evolution</div>
       </div>
     </div>
   </main>
 
-
   <footer></footer>
+  <div id="bodyOverlay" class="bodyOverlay" onclick="toggleDialog()"></div>
+  <div class="dialog" id="detailView">
+    <a href="#" role="button" class="closeDialog">
+      <i onclick="toggleDialog()">X</i>
+    </a>
+  </div>
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/dialogSearch.js"></script>
 </body>
-<script src="./scripts/script.js"></script>
 </html>
