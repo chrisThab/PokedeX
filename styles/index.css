@@ -26,6 +26,9 @@ main{
   background: linear-gradient(135deg, blue, yellow);
   width: 100%;
   height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 32px;
 }
 
 footer{
@@ -45,4 +48,5 @@ footer{
   width: 32px;
   height: 32px;
   text-align: center;
+  margin-left: 16px;
 }

@@ -18,22 +18,13 @@
 <body onload="loadData()">
   <header>
     <div id="headline" ><img src="assets/img/pokedex.png" alt="Pokemon headline"></div>
-    <input id="searchFor" class="font borderStandard" type="search" minlength="3" placeholder="Search for ..." name="searchFor"><button class="searchButton borderStandard" type="submit" aria-label="searchButton" label="searchFor">GO</button>
+    <div>
+    <input id="searchFor" class="font borderStandard" type="search" minlength="3" placeholder="Search for ..." name="searchFor"><button class="searchButton borderStandard" type="submit" aria-label="searchButton">GO</button>
+    </div>
   </header>
 
-  <main>
-    <div id="card" class="card borderStandard">
-      <div class="nameNumber borderStandard">
-        <p id="numberOfPokemon">nummer</p>
-        <p id="nameOfPokemon">name</p>
-      </div>
-      <div class="pokemonPicture" id="picturePokemon"><img onclick="toggleDialog()" id="pic" src="" alt="picture of"></div>
-      <div class="pokemonDetails">
-        <div onclick="" class="borderStandard" id="abilities">abilities</div>
-        <div onclick="" class="borderStandard" id="stats">stats</div>
-        <div onclick="" class="borderStandard" id="evolution">evolution</div>
-      </div>
-    </div>
+  <main id="main">
+    
   </main>
 
   <footer></footer>
@@ -43,7 +34,7 @@
       <i onclick="toggleDialog()">X</i>
     </a>
   </div>
+  <script src="./scripts/dialogSearch.js" defer></script>
   <script src="./scripts/script.js"></script>
-  <script src="./scripts/dialogSearch.js"></script>
 </body>
 </html>
