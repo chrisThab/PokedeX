@@ -1,0 +1,62 @@
+.detailCard{
+  display: flex;
+  flex-direction: column;
+  /* opacity: 0; */
+  transition: opacity 500ms ease-in-out;
+  padding: 1.5em;
+  width: 25%;
+  height: 50%;
+}
+
+.arrowWrapper{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+  padding: .25em;
+}
+
+.arrowWrapper div {
+  font-size: 2em;
+  width: 48px;
+}
+
+.pictureWrapper{
+  display: flex;
+  width: 100%;
+  height: 30%;
+}
+
+.types{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  justify-content: space-evenly;
+}
+
+.types p{
+  font-size: 1.5em;
+}
+
+.pokemonPicture{
+  width: 75%;
+  height: auto;
+  object-fit: fill;
+  overflow: visible;
+}
+
+.nameNumberWrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats{
+  display: flex;
+  justify-content: space-between;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}

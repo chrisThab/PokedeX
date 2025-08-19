@@ -1,15 +1,15 @@
-function toggleDialog(pokemon = null){
+function toggleDialog(pokemon){
   const overlay = document.getElementById('bodyOverlay');
   const dialog = document.getElementById('detailView');
+  const background = document.querySelector('body');
 
+  background.classList.toggle('stop');
   overlay.classList.toggle('dialogVisible');
   dialog.classList.toggle('dialogVisible');
-
   if (pokemon) {
-    dialog.innerHTML = buildDetailCard(pokemon);
+    dialog.innerHTML = detailCard(pokemon);
   }
 }
-
 
 async function searchPokemon() {
   const input = document.getElementById('searchFor');
