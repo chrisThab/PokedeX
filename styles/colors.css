@@ -1,0 +1,19 @@
+.grass{
+  background-color: greenyellow;
+}
+
+.poison{
+  background-color: violet;
+}
+
+.water{
+  background-color: rgb(58, 193, 255);
+}
+
+.fire{
+  background-color: orangered;
+}
+
+.electro{
+  background-color: yellow;
+}
