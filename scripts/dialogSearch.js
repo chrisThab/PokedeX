@@ -2,12 +2,12 @@ function toggleDialog(pokemon){
   const overlay = document.getElementById('bodyOverlay');
   const dialog = document.getElementById('detailView');
   const background = document.querySelector('body');
-
+  
   background.classList.toggle('stop');
   overlay.classList.toggle('dialogVisible');
   dialog.classList.toggle('dialogVisible');
-  if (pokemon) {
-    dialog.innerHTML = detailCard(pokemon);
+  if(pokemon){
+    detailCard(pokemon);
   }
 }
 

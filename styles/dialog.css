@@ -22,6 +22,11 @@
   transition: opacity 500ms ease-in-out;
 }
 
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
 #detailView{
   width: 400px;
   height: 700px;
@@ -52,7 +57,7 @@
 #left, #right{
   width: 48px;
   height: 48px;
-  background-color: transparent;
+  background-color: white;
   object-fit: cover;
 }
 

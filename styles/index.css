@@ -13,7 +13,7 @@
 }
 
 header{
-  background-color: rgb(151, 1, 2);
+  background-color: red;
   width: 100%;
   height: fit-content;
   display: flex;
@@ -23,7 +23,7 @@ header{
 }
 
 main{
-  background: linear-gradient(135deg, blue, yellow);
+  background: linear-gradient(135deg, rgba(0, 0, 255, 0.688), rgba(255, 255, 0, 0.527));
   width: 100%;
   height: fit-content;
   display: grid;
