@@ -29,6 +29,7 @@ main{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 32px;
+  
 }
 
 footer{
@@ -39,14 +40,14 @@ footer{
 
 #searchFor{
   width: 200px;
-  height: 32px;
+  height: 48px;
   text-align: center;
   outline: none;
 }
 
 .searchButton{
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   text-align: center;
   margin-left: 16px;
 }

@@ -5,6 +5,13 @@ let container = document.getElementById('main');
 async function loadData() {
   await twentyOfEm();
 }
+btnForNext();
+
+async function twentyOfEm(){
+  for (let i = 1; i <= 20; i++) {
+    await loadPokemonData(i);
+    };
+}
 
 async function loadPokemonData(path='') {
   let response = await fetch(BASE_URL + path);
@@ -13,16 +20,10 @@ async function loadPokemonData(path='') {
   buildCard(responseJson);
 }
 
-async function twentyOfEm(){
-  for (let i = 1; i <= 20; i++) {
-    await loadPokemonData(i);
-    };
-  }
-
 function buildCard(pokemon){
-  const typeClasses = pokemon.types.map(t => t.type.name).join(' ');
+  const bgColor = pokemon.types[0].type.name;
   const card = document.createElement('div');
-  card.className= `card borderStandard ${typeClasses}`;
+  card.className= `card borderStandard ${bgColor}`;
   card.innerHTML = cardWrap(pokemon, pokemon.types);
   const img = card.querySelector('img');
   img.addEventListener('click', () => toggleDialog(pokemon), detailCard(pokemon));
@@ -51,38 +52,6 @@ function detailCard(pokemon){
   })
 }
 
-function buildDetail(bgColor, number, name, pictureOf){
-return`
-<div class="detailCard ${bgColor}">
-    <div id='arrowWrapper' class="arrowWrapper borderStandard">
-      <button id="left" class="borderStandard hover"><img src="./assets/icons/arrow_hand_left.png" alt=""></button>
-      <button id="right" class="borderStandard hover"><img src="./assets/icons/arrow_hand_right.png" alt=""></button>
-      <button id="close" class="borderStandard hover" onclick='toggleDialog()'><div>X</div></button>
-    </div>
-    <img class='backgroundOfDetail' src="./assets/img/pokeSign2.png" alt="pokemon logo">
-    <div id="typePic" class="pictureWrapper">
-      <div id='typesOf' class="types">
-      </div>
-      <div id="picture" class="pokemonPicture"><img src='${pictureOf}'></div>
-    </div>
-    <div id="nameNumberWrapper" class="nameNumberWrapper borderStandard">
-      <p>#${number}</p>
-      <p>${name}</p>
-    </div>
-    <div id="statistics" class="stats">
-      <div class='column'>
-      <strong class='hover borderRound white' onclick='switchStats'>STATS</strong>
-      <div id="stats" class="column"></div></div>
-      <div class='column'>
-      <strong class='hover borderRound white' onclick='switchStats'>ABILITY</strong>
-      <div id="abilities" class="column"></div></div>
-      <div class='column'>
-      <strong class='hover borderRound white' onclick='switchStats'>EVOLUTION</strong>
-      <div id="evolution" class="column"></div></div>
-    </div>
-  </div>`
-}
-
 function typeOf(pokemon){
   const typeContainer = document.getElementById('typesOf');
   typeContainer.innerHTML = '';
@@ -94,23 +63,7 @@ function typeOf(pokemon){
   });
 }
 
-
-// function stats(pokemon) {
-//   const statsContainer = document.getElementById('stats');
-//   statsContainer.innerHTML = '';
-//   pokemon.stats.forEach(stats => {
-//     const statElement = document.createElement('p');
-//     statElement.innerText = `${stats.stat.name}: ${stats.base_stat}`;
-//     statsContainer.appendChild(statElement);
-//   });
-// }
-
-// function abilities(pokemon){
-//   const absContainer = document.getElementById('abilities');
-//   absContainer.innerHTML = '';
-//   pokemon.abilities.forEach(abilities => {
-//     const absElement = document.createElement('p');
-//     absElement.innerText = `${abilities.ability.name}`;
-//     absContainer.appendChild(absElement);
-//   })
-// }
+function btnForNext (){
+  const btnNext20 = document.getElementById('main');
+  btnNext20.innerHTML = `<div class='btnForNext borderRound font'>Get the next 20 Pokemon</div>`
+}
