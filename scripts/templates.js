@@ -2,7 +2,7 @@ function cardWrap(pokemon, types){
   const typeHTML = types.map(t => `<div class="borderStandard ${t.type.name}">${t.type.name}</div>`).join('');
   return `
     <div class="nameNumber borderStandard">
-      <p>#${pokemon.id}</p>
+      <p># ${pokemon.id}</p>
       <p>${pokemon.name.toUpperCase()}</p>
     </div>
     <div class="pokemonPicture">

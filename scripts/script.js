@@ -2,15 +2,14 @@ const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 const TYPE_URL = "https://pokeapi.co/api/v2/type/";
 let container = document.getElementById('main');
 
-async function loadData() {
-  await twentyOfEm();
-}
-btnForNext();
-
 async function twentyOfEm(){
   for (let i = 1; i <= 20; i++) {
     await loadPokemonData(i);
     };
+}
+
+async function loadData() {
+  await twentyOfEm();
 }
 
 async function loadPokemonData(path='') {
@@ -42,14 +41,14 @@ function detailCard(pokemon){
   typeOf(pokemon, bgColor);
   }
 
-  function renderData(pokemon, key, containerID, data){
+function renderData(pokemon, key, containerID, data){
   const container = document.getElementById(containerID);
   container.innerHTML = '';
   pokemon[key].forEach(item => {
     const element = document.createElement('p');
     element.innerText = data(item);
     container.appendChild(element);
-  })
+  });
 }
 
 function typeOf(pokemon){
@@ -64,6 +63,8 @@ function typeOf(pokemon){
 }
 
 function btnForNext (){
-  const btnNext20 = document.getElementById('main');
+  const btnNext20 = document.getElementById('next20');
   btnNext20.innerHTML = `<div class='btnForNext borderRound font'>Get the next 20 Pokemon</div>`
 }
+
+btnForNext();

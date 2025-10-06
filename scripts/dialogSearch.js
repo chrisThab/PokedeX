@@ -62,7 +62,6 @@ async function searchPokemon() {
   }
 }
 
-
 document.getElementById('searchButton').addEventListener('click', (event) => {
   event.preventDefault();
   searchPokemon();
