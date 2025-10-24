@@ -1,6 +1,8 @@
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 const TYPE_URL = "https://pokeapi.co/api/v2/type/";
 let container = document.getElementById('main');
+let loadedPokemon = [];
+
 
 async function twentyOfEm(){
   for (let i = 1; i <= 20; i++) {
@@ -10,6 +12,7 @@ async function twentyOfEm(){
 
 async function loadData() {
   await twentyOfEm();
+  renderNextButtonCard();
 }
 
 async function loadPokemonData(path='') {
@@ -17,6 +20,7 @@ async function loadPokemonData(path='') {
   let responseJson = await response.json();
   
   buildCard(responseJson);
+  loadedPokemon = response.json;
 }
 
 function buildCard(pokemon){
@@ -62,9 +66,32 @@ function typeOf(pokemon){
   });
 }
 
-function btnForNext (){
-  const btnNext20 = document.getElementById('next20');
-  btnNext20.innerHTML = `<div class='btnForNext borderRound font'>Get the next 20 Pokemon</div>`
+function renderNextButtonCard() {
+  const card = document.createElement('div');
+  card.className = 'card borderStandard nextButtonCard';
+  card.innerHTML = `
+    <div class="nameNumber borderStandard">
+      <p>→</p>
+      <p>Get next 20 Pokémon</p>
+    </div>
+    <div class="pokemonPicture">
+      <img class='hover' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Next Pokémon">
+    </div>
+  `;
+  card.addEventListener('click', loadNext20);
+  container.appendChild(card);
 }
 
-btnForNext();
+let currentOffset = 1;
+
+async function loadNext20() {
+  // Entferne den alten Button
+  const oldButton = document.querySelector('.nextButtonCard');
+  if (oldButton) oldButton.remove();
+
+  for (let i = currentOffset + 20; i < currentOffset + 40; i++) {
+    await loadPokemonData(i);
+  }
+  currentOffset += 20;
+  renderNextButtonCard();
+}
