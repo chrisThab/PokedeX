@@ -79,6 +79,24 @@
   flex-direction: column;
 }
 
+.column p{
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .white{
   background-color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+.halfWidth{
+  width: 50%;
+}
+
+.smallerWidth{
+  width: 22%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+

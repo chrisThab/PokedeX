@@ -40,7 +40,7 @@ function detailCard(pokemon){
   const name = pokemon.name.toUpperCase();
   const pictureOf = pokemon.sprites.other.dream_world.front_default;
   detailCard.innerHTML = buildDetail(bgColor, number, name, pictureOf);
-  renderData(pokemon, 'stats', 'stats', item=>`${item.stat.name}: ${item.stat_base}`);
+  renderData(pokemon, 'stats', 'stats', item=>`${item.stat.name}: ${item.base_stat}`);
   renderData(pokemon, 'abilities', 'abilities', item=> `${item.ability.name}`);
   typeOf(pokemon, bgColor);
   }
@@ -85,7 +85,6 @@ function renderNextButtonCard() {
 let currentOffset = 1;
 
 async function loadNext20() {
-  // Entferne den alten Button
   const oldButton = document.querySelector('.nextButtonCard');
   if (oldButton) oldButton.remove();
 
@@ -94,4 +93,15 @@ async function loadNext20() {
   }
   currentOffset += 20;
   renderNextButtonCard();
+}
+
+function switchWidth() {
+  const changeTo = document.querySelector('smallerWidth');
+  const changedWidth = document.querySelector('halfWidth');
+  if (changeTo) {
+    changeTo.classList.remove('smallerWidth');
+    changeTo.classList.add('halfWidth');
+    changedWidth.classList.remove('halfWidth');
+    changedWidth.classList.add('smallerWidth');
+  }
 }

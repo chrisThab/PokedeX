@@ -31,16 +31,21 @@ return`
       <p>#${number}</p>
       <p>${name}</p>
     </div>
-    <div id="statistics" class="stats">
-      <div class='column'>
-      <strong class='hover borderRound white' onclick='switchStats'>STATS</strong>
-      <div id="stats" class="column"></div></div>
-      <div class='column'>
-      <strong class='hover borderRound white' onclick='switchStats'>ABILITY</strong>
-      <div id="abilities" class="column"></div></div>
-      <div class='column'>
-      <strong class='hover borderRound white' onclick='switchStats'>EVOLUTION</strong>
-      <div id="evolution" class="column"></div></div>
+
+  <div id="statistics" class="stats">
+    <div class='column halfWidth' onclick='switchWidth()'>
+      <strong class='hover borderRound white'>STATS</strong>
+      <div id="stats" class="column"></div>
     </div>
+    <div class='column smallerWidth' onclick='switchWidth()'>
+      <strong class='hover borderRound white'>ABILITY</strong>
+      <div id="abilities" class="column"></div>
+    </div>
+    <div class='column smallerWidth' onclick='switchWidth()'>
+      <strong class='hover borderRound white'>EVOLUTION</strong>
+      <div id="evolution" class="column"></div>
+    </div>
+  </div>
+
   </div>`
 }
