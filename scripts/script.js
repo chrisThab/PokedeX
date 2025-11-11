@@ -3,7 +3,6 @@ const TYPE_URL = "https://pokeapi.co/api/v2/type/";
 let container = document.getElementById('main');
 let loadedPokemon = [];
 
-
 async function twentyOfEm(){
   for (let i = 1; i <= 20; i++) {
     await loadPokemonData(i);
@@ -75,10 +74,11 @@ function renderNextButtonCard() {
       <p>Get next 20 Pokémon</p>
     </div>
     <div class="pokemonPicture">
-      <img class='hover' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Next Pokémon">
+      <img class='hover' src="assets/img/ball.png" alt="Next Pokémon">
     </div>
   `;
   card.addEventListener('click', loadNext20);
+  card.classList.add('hover');
   container.appendChild(card);
 }
 
@@ -95,13 +95,41 @@ async function loadNext20() {
   renderNextButtonCard();
 }
 
-function switchWidth() {
-  const changeTo = document.querySelector('smallerWidth');
-  const changedWidth = document.querySelector('halfWidth');
-  if (changeTo) {
-    changeTo.classList.remove('smallerWidth');
-    changeTo.classList.add('halfWidth');
-    changedWidth.classList.remove('halfWidth');
-    changedWidth.classList.add('smallerWidth');
-  }
+function switchWidth(clickedId) {
+  const columns = [
+    document.getElementById('first'),
+    document.getElementById('second'),
+    document.getElementById('third')
+  ];
+
+  columns.forEach(col => {
+    if (col.id === clickedId) {
+      col.classList.remove('smallerWidth');
+      col.classList.add('halfWidth');
+    } else {
+      col.classList.remove('halfWidth');
+      col.classList.add('smallerWidth');
+    }
+  });
 }
+
+async function getEvolutionName(id) {
+  // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  // const pokemon = await response.json();
+
+  // const speciesResponse = await fetch(pokemon.species.url);
+  // const speciesData = await speciesResponse.json();
+
+  // const evoResponse = await fetch(speciesData.evolution_chain.url);
+  // const evoData = await evoResponse.json();
+
+  // const nextEvolution = evoData.chain.evolves_to[0]?.species.name;
+  // return nextEvolution || "Keine weitere Evolution";
+  
+  const response = await fetch(`https://pokeapi.co/api/v2/evolution-trigger/${id}/`);
+  const pokemon = await response.json();
+  const evoData = await pokemon[0]?.species.name;
+  console.log(evoData);
+  
+}
+getEvolutionName();

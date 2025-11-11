@@ -5,7 +5,7 @@ function cardWrap(pokemon, types){
       <p># ${pokemon.id}</p>
       <p>${pokemon.name.toUpperCase()}</p>
     </div>
-    <div class="pokemonPicture">
+    <div class="pokemonPicture pulsatingShadow">
       <img class='hover' src="${pokemon.sprites.other.dream_world.front_default}" alt="picture of ${pokemon.name}">
     </div>
     <div class="pokemonDetails">
@@ -33,19 +33,18 @@ return`
     </div>
 
   <div id="statistics" class="stats">
-    <div class='column halfWidth' onclick='switchWidth()'>
-      <strong class='hover borderRound white'>STATS</strong>
-      <div id="stats" class="column"></div>
-    </div>
-    <div class='column smallerWidth' onclick='switchWidth()'>
-      <strong class='hover borderRound white'>ABILITY</strong>
-      <div id="abilities" class="column"></div>
-    </div>
-    <div class='column smallerWidth' onclick='switchWidth()'>
-      <strong class='hover borderRound white'>EVOLUTION</strong>
-      <div id="evolution" class="column"></div>
-    </div>
+  <div id='first' class='column halfWidth'>
+    <strong onclick='switchWidth("first")' class='hover borderRound white'>STATS</strong>
+    <div id="stats" class="column"></div>
   </div>
-
+  <div id='second' class='column smallerWidth'>
+    <strong onclick='switchWidth("second")' class='hover borderRound white'>ABILITY</strong>
+    <div id="abilities" class="column"></div>
+  </div>
+  <div id='third' class='column smallerWidth'>
+    <strong onclick='switchWidth("third")' class='hover borderRound white'>EVOLUTION</strong>
+    <div id="evolution" class="column">${number}</div>
+  </div>
+  </div>
   </div>`
 }
