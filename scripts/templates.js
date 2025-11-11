@@ -43,7 +43,7 @@ return`
   </div>
   <div id='third' class='column smallerWidth'>
     <strong onclick='switchWidth("third")' class='hover borderRound white'>EVOLUTION</strong>
-    <div id="evolution" class="column">${number}</div>
+    <div id="evolution" class="column"></p></div>
   </div>
   </div>
   </div>`

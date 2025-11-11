@@ -114,22 +114,7 @@ function switchWidth(clickedId) {
 }
 
 async function getEvolutionName(id) {
-  // const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-  // const pokemon = await response.json();
 
-  // const speciesResponse = await fetch(pokemon.species.url);
-  // const speciesData = await speciesResponse.json();
-
-  // const evoResponse = await fetch(speciesData.evolution_chain.url);
-  // const evoData = await evoResponse.json();
-
-  // const nextEvolution = evoData.chain.evolves_to[0]?.species.name;
-  // return nextEvolution || "Keine weitere Evolution";
-  
-  const response = await fetch(`https://pokeapi.co/api/v2/evolution-trigger/${id}/`);
-  const pokemon = await response.json();
-  const evoData = await pokemon[0]?.species.name;
-  console.log(evoData);
-  
 }
-getEvolutionName();
+
+getEvolutionName()
